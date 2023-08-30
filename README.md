@@ -1,4 +1,4 @@
-# notion 算法
+# Notion 算法
 
 [配套 notion](https://exposir.notion.site/d85211de46ab4711813412a891bf648a?pvs=4)
 
