@@ -1,3 +1,11 @@
+function buildBadCharTable(short) {
+  const table = {};
+  for (let i = 0; i < short.length - 1; i++) {
+    table[short[i]] = i;
+  }
+  return table;
+}
+
 function boyerMooreSearch(long, short) {
   const badChar = buildBadCharTable(short);
   let count = 0;
@@ -16,12 +24,4 @@ function boyerMooreSearch(long, short) {
   }
 
   return count;
-}
-
-function buildBadCharTable(short) {
-  const table = {};
-  for (let i = 0; i < short.length - 1; i++) {
-    table[short[i]] = i;
-  }
-  return table;
 }

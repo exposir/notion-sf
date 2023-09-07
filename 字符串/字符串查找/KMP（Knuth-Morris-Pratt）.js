@@ -1,3 +1,21 @@
+function buildKMPTable(short) {
+  const table = new Array(short.length).fill(0);
+  let length = 0; // length of the previous longest prefix suffix
+
+  for (let i = 1; i < short.length; ) {
+    if (short[i] === short[length]) {
+      length++;
+      table[i] = length;
+      i++;
+    } else {
+      if (length !== 0) length = table[length - 1];
+      else i++;
+    }
+  }
+
+  return table;
+}
+
 function kmpSearch(long, short) {
   const table = buildKMPTable(short);
   let count = 0;
@@ -18,22 +36,4 @@ function kmpSearch(long, short) {
   }
 
   return count;
-}
-
-function buildKMPTable(short) {
-  const table = new Array(short.length).fill(0);
-  let length = 0; // length of the previous longest prefix suffix
-
-  for (let i = 1; i < short.length; ) {
-    if (short[i] === short[length]) {
-      length++;
-      table[i] = length;
-      i++;
-    } else {
-      if (length !== 0) length = table[length - 1];
-      else i++;
-    }
-  }
-
-  return table;
 }
